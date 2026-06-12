@@ -11,7 +11,7 @@ class Maxelotl < Formula
   desc "Drop-in axel download accelerator with long-URL support"
   homepage "https://github.com/proximile/maxelotl"
   url "https://github.com/proximile/maxelotl/archive/refs/tags/v2.18.0.tar.gz"
-  sha256 "17761e41de18274aeb46c2e5a5898197b9199673ccc4f371eebc7d2a6e507edd"
+  sha256 "890e122fa7a907c942308610836150081506286a480710ac432955f6bc113492"
   license "GPL-2.0-or-later"
   head "https://github.com/proximile/maxelotl.git", branch: "main"
 
