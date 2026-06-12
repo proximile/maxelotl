@@ -1,15 +1,18 @@
-# AXEL - Lightweight CLI download accelerator
+# maxelotl — a lightweight CLI download accelerator
+
+**maxelotl** is a drop-in fork of [axel](https://github.com/axel-download-accelerator/axel)
+that lifts the old ~1 KiB URL-length limit, so it handles very long URLs
+(presigned cloud-storage links, OAuth token query strings, etc. — up to 32 KiB).
+It installs as `maxelotl` with an `axel` alias, so it works as a transparent
+replacement for the stock `axel`.
 
 ## About
 
-Axel tries to accelerate the download process by using multiple
-connections per file, and can also balance the load between
-different servers.
+maxelotl accelerates downloads by using multiple connections per file, and can
+also balance the load between different servers.
 
-Axel tries to be as light as possible, so it might be useful on
-byte-critical systems.
-
-Axel supports HTTP, HTTPS, FTP and FTPS protocols.
+It tries to be as light as possible, so it might be useful on byte-critical
+systems, and supports HTTP, HTTPS, FTP and FTPS protocols.
 
 Thanks to the original developer of Axel, Wilmer van der Gaast, and everyone
 else who has contributed to it over the years.
@@ -42,38 +45,39 @@ paid development time through:
 ## Install
 
 Prebuilt binaries for every release are published on the
-[releases page](https://github.com/proximile/axel/releases). The Linux builds
-are fully static — a single file with no dependencies that runs on any
-distribution and works as a drop-in replacement for the stock `axel`.
+[releases page](https://github.com/proximile/maxelotl/releases). The Linux
+builds are fully static — a single file with no dependencies that runs on any
+distribution. Every install method sets up the `maxelotl` command **and** an
+`axel` alias, so it transparently replaces the stock `axel`.
 
 ### Quick install (Linux & macOS)
 
-    curl -fsSL https://raw.githubusercontent.com/proximile/axel/master/install.sh | sh
+    curl -fsSL https://raw.githubusercontent.com/proximile/maxelotl/main/install.sh | sh
 
 This detects your OS and CPU, downloads the matching binary, and installs it to
 `/usr/local/bin` (or `~/.local/bin` if that isn't writable). Pin a version with
-`AXEL_VERSION=v2.18.0` or change the location with `AXEL_INSTALL_DIR=...`.
+`MAXELOTL_VERSION=v2.18.0` or change the location with `MAXELOTL_INSTALL_DIR=...`.
 
 ### Debian / Ubuntu (.deb) and Fedora / RHEL (.rpm)
 
 Download the package for your architecture from the releases page, then:
 
-    sudo apt install ./axel_<version>_amd64.deb      # Debian/Ubuntu
-    sudo dnf install ./axel-<version>.x86_64.rpm     # Fedora/RHEL
+    sudo apt install ./maxelotl_<version>_amd64.deb      # Debian/Ubuntu
+    sudo dnf install ./maxelotl-<version>.x86_64.rpm     # Fedora/RHEL
 
 These replace the distribution's `axel` package.
 
 ### macOS (Homebrew)
 
-    brew install proximile/tap/axel
+    brew install proximile/tap/maxelotl
 
 ### Manual / Raspberry Pi
 
 Grab the right tarball from the releases page (including `linux-armv6` for the
-Raspberry Pi Zero and Pi 1), extract it, and copy `axel` onto your `PATH`:
+Raspberry Pi Zero and Pi 1), extract it, and copy `maxelotl` onto your `PATH`:
 
-    tar -xzf axel-<version>-linux-aarch64.tar.gz
-    sudo install -m 0755 axel-<version>-linux-aarch64/axel /usr/local/bin/axel
+    tar -xzf maxelotl-<version>-linux-aarch64.tar.gz
+    sudo install -m 0755 maxelotl-<version>-linux-aarch64/maxelotl /usr/local/bin/maxelotl
 
 ### Windows
 
@@ -83,9 +87,8 @@ native use; it bundles the runtime DLLs it needs.
 
 ### From your distribution
 
-Your operating system may also ship its own packaged version of Axel. If that
-package is outdated, please get in touch with the package maintainer or open a
-support ticket with your distro.
+Your operating system may also ship the original `axel` package. maxelotl
+installs as a drop-in replacement for it.
 
 ## Building from source
 WARNING: Building from the source code repository is recommended only when doing
